@@ -1,5 +1,3 @@
-# Build updated HTML content
-html_content = textwrap.dedent("""\
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -217,7 +215,7 @@ html_content = textwrap.dedent("""\
         <!-- ====== Speaker 1 ====== -->
         <div class="md:flex md:space-x-6">
           <div class="md:w-1/3 w-full mb-4 md:mb-0">
-            <!-- ▼▼▼ ここに講師1の写真を挿入してください（幅100%推奨 / 例: <img src=\"speaker1.jpg\" alt=\"講師1\" class=\"rounded-lg\">） ▼▼▼ -->
+            <!-- ▼▼▼ ここに講師1の写真を挿入してください（幅100%推奨 / 例: <img src="speaker1.jpg" alt="講師1" class="rounded-lg">） ▼▼▼ -->
             <div class="bg-gray-200 h-52 rounded-lg flex items-center justify-center">
               <span class="text-gray-500 text-sm">講師写真をここに挿入</span>
             </div>
@@ -340,7 +338,7 @@ html_content = textwrap.dedent("""\
   <section id="entry-form" class="py-20 lead-gradient text-white" data-fade>
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-10">
-        <h3 class="text-2xl md:text-3xl font-extrabold mb-2">\\ 残り席わずか！今すぐ無料申し込み //</h3>
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-2">\ 残り席わずか！今すぐ無料申し込み //</h3>
         <p class="text-lg font-bold">調査データ×市場トレンドから読み解く、最新化粧品トレンドと注目成分</p>
       </div>
 
@@ -398,10 +396,3 @@ html_content = textwrap.dedent("""\
   </footer>
 </body>
 </html>
-""")
-
-filepath = "/mnt/data/improved_lp_v2.html"
-with open(filepath, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-filepath
