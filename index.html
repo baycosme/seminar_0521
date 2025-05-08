@@ -8,37 +8,79 @@
     :root {
       --primary:#0070f3;
       --primary-dark:#0059c1;
+      --gradient-start:#0070f3;
+      --gradient-end:#0059c1;
       --bg-light:#f5f7fa;
       --text-dark:#222;
       --max-width:1080px;
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:"Helvetica Neue",Arial,sans-serif;}
     body{color:var(--text-dark);line-height:1.6;background:#fff;}
-    header{background:var(--bg-light);padding:60px 20px;text-align:center;}
-    header h1{font-size:2rem;font-weight:700;margin-bottom:20px;}
-    header h2{font-size:1.1rem;margin-bottom:30px;}
-    .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:600;transition:.2s;}
-    .btn:hover{background:var(--primary-dark);}
+
+    /* === Hero Banner === */
+    header{
+      background:linear-gradient(135deg,var(--gradient-start) 0%,var(--gradient-end) 100%);
+      color:#fff;
+      padding:80px 24px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-height:70vh;
+    }
+    header h1{
+      font-size:clamp(1.65rem,6vw,2.6rem);
+      font-weight:700;
+      line-height:1.25;
+      margin-bottom:20px;
+    }
+    header h2{
+      font-size:clamp(1rem,4.5vw,1.25rem);
+      margin-bottom:28px;
+    }
+    header p{font-size:.95rem;opacity:.9;margin-bottom:14px;}
+
+    /* Buttons */
+    .btn{
+      display:inline-block;
+      background:#fff;
+      color:var(--primary-dark);
+      padding:14px 32px;
+      border-radius:9999px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.2s;
+    }
+    .btn:hover{background:#e0e9ff;}
+
+    /* Layout Helpers */
     .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:60px 0;}
     section h3{font-size:1.5rem;font-weight:700;margin-bottom:24px;text-align:center;}
     section p, li{font-size:1rem;margin-bottom:12px;}
     ul{list-style:disc inside;margin-left:10px;}
     .two-col{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;}
-    .card{flex:1 1 300px;background:var(--bg-light);padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+    .card{flex:1 1 300px;background:var(--bg-light);padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}   
     .speaker img{width:100%;height:auto;border-radius:8px;margin-bottom:12px;}
     .footer{background:#111;color:#fff;text-align:center;padding:40px 20px;}
-    .sticky-cta{position:fixed;bottom:20px;right:20px;z-index:1000;}
-    @media (min-width:768px){header h1{font-size:2.5rem;}header h2{font-size:1.25rem;}}
+    .sticky-cta{position:fixed;bottom:16px;right:16px;z-index:1000;}
+    .sticky-cta.btn{padding:12px 24px;font-size:.9rem;}
+
+    @media (min-width:768px){
+      header{padding:100px 40px;min-height:60vh;}
+      header h1{font-size:2.8rem;}
+      header h2{font-size:1.35rem;}
+    }
   </style>
 </head>
 <body>
-  <!-- Hero / ファーストビュー -->
+  <!-- Hero / Banner -->
   <header>
     <h1>調査データ × 市場トレンドで先読みせよ！<br/>海外の最新成分トレンドも一挙公開</h1>
     <h2>～最新化粧品トレンドと注目成分 徹底解説セミナー～</h2>
     <p>開催日：2025年5月21日（水）12:00〜13:00 ｜ 形式：オンライン（Zoom） ｜ 参加費：無料</p>
     <a class="btn" href="https://forms.gle/3VVdjk7VCqsgEyobA" target="_blank" rel="noopener">今すぐ無料で申し込む</a>
-    <p style="margin-top:16px;font-size:.9rem;">先着100名｜主催：株式会社ベイコスメティックス / 株式会社Zero&nbsp;Gravity</p>
+    <p style="margin-top:16px;font-size:.85rem;opacity:.85;">先着100名｜主催：株式会社ベイコスメティックス / 株式会社Zero&nbsp;Gravity</p>
   </header>
 
   <!-- Benefit -->
@@ -91,13 +133,13 @@
     <h3>講師紹介</h3>
     <div class="two-col">
       <div class="card speaker">
-        <img src="https://github.com/baycosme/seminar_0521/raw/main/kato.png" alt="株式会社ベイコスメティックス 代表取締役社長 加藤聡太" />
+        <img src="images/kato.jpg" alt="株式会社ベイコスメティックス 代表取締役社長 加藤聡太" />
         <h4>加藤聡太</h4>
         <p>株式会社ベイコスメティックス 代表取締役社長</p>
         <p>1991年生まれ。東京大学経済学部卒業。電通でストラテジックプランナーとして花王やトヨタを担当後、化粧品開発・マーケティング支援で実績多数。</p>
       </div>
       <div class="card speaker">
-        <img src="https://github.com/baycosme/seminar_0521/raw/main/mizuno.png" alt="株式会社Zero Gravity 水野夢子" />
+        <img src="images/mizuno.jpg" alt="株式会社Zero Gravity 水野夢子" />
         <h4>水野夢子</h4>
         <p>株式会社Zero&nbsp;Gravity</p>
         <p>機能性油剤や粉体の輸出貿易を担当後、Zero&nbsp;Gravityに入社。化粧品の有効成分を軸としたブランドづくりをサポートし、海外原料の営業代行やストーリー提案を行う。</p>
