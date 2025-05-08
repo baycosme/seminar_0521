@@ -1,439 +1,142 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【無料ウェビナー】調査データ×市場トレンドから読み解く、最新化粧品トレンドと注目成分</title>
-  <!-- TailwindCSS v2 CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>調査データ × 市場トレンドで先読みせよ！ | 最新化粧品トレンドと注目成分 徹底解説セミナー</title>
   <style>
-    @import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
-
-    /* =====================================================
-       BRAND COLOR : ここを変更すると全体のキーカラーが変わります
-       -----------------------------------------------------
-       --primary         : メインカラー（例：#0E78B4）
-       --primary-dark    : メインカラーを濃くした色
-       --primary-light   : メインカラーを薄くした色
-       ※ baycosme.com/white_paper のカラーに合わせて調整してください
-    ====================================================== */
-    :root{
-      --primary:#0E78B4;      /* ←サイトのメインカラーに合わせて変更 */
-      --primary-dark:#0A5E8E; /* 自動で算出できない場合は手動で調整 */
-      --primary-light:#4FB2DA;
+    :root {
+      --primary:#0070f3;
+      --primary-dark:#0059c1;
+      --bg-light:#f5f7fa;
+      --text-dark:#222;
+      --max-width:1080px;
     }
-
-    body{
-      font-family:'Noto Sans JP','Hiragino Sans','Meiryo',sans-serif;
-      line-height:1.8;
-    }
-    /* ───────── ヒーロー背景グラデーション ───────── */
-    .lead-gradient{
-      background:linear-gradient(120deg,var(--primary-dark) 0%,var(--primary) 35%,var(--primary-light) 100%);
-    }
-    /* ───────── セクションタイトル ───────── */
-    .section-heading{
-      position:relative;
-      padding-left:1rem;
-      margin-bottom:1.5rem;
-    }
-    .section-heading::before{
-      content:'';
-      position:absolute;
-      left:0;top:.4rem;bottom:.4rem;
-      width:6px;
-      background-color:var(--primary);
-      border-radius:2px;
-    }
-    /* ───────── CTAボタン ───────── */
-    .cta-btn{
-      @apply inline-block px-10 py-4 text-xl font-bold text-white rounded-lg shadow-md transform transition duration-300 ease-out;
-      background-color:var(--primary);
-    }
-    .cta-btn:hover{
-      background-color:var(--primary-dark);
-      transform:translateY(-3px) scale(1.03);
-      box-shadow:0 10px 15px -3px rgba(0,0,0,0.3);
-    }
-    /* ───────── カード / ボックス ───────── */
-    .card-hover{
-      @apply transform transition duration-300 ease-out shadow;
-    }
-    .card-hover:hover{
-      transform:translateY(-4px) scale(1.03);
-      box-shadow:0 12px 20px -4px rgba(0,0,0,0.25);
-    }
-    /* ───────── stickyヘッダー ───────── */
-    .sticky-cta{
-      backdrop-filter:blur(14px);
-    }
-    /* ───────── フェードインアニメ ───────── */
-    [data-fade]{
-      opacity:0;
-      transform:translateY(20px);
-      transition:opacity .6s ease,transform .6s ease;
-    }
-    [data-fade].show{
-      opacity:1;
-      transform:none;
-    }
-
-    .btn,
-a.btn,
-button.btn {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.5;
-  position: relative;
-  display: inline-block;
-  padding: 1rem 4rem;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  color: #212529;
-  border-radius: 0.5rem;
-}
-
-a.btn-c {
-  font-size: 1.8rem;
-
-  position: relative;
-
-  padding: 2rem 4rem 2rem 2rem;
-
-  -webkit-transition: all 0.3s;
-
-  transition: all 0.3s;
-
-  color: #fff;
-  border-radius: 100vh;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#007adf),
-    to(#00ecbc)
-  );
-  background-image: -webkit-linear-gradient(left, #007adf 0%, #00ecbc 100%);
-  background-image: linear-gradient(to right, #007adf 0%, #00ecbc 100%);
-  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-}
-
-a.btn-d {
-  font-size: 18px;
-  padding: 2rem;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  color: #fff;
-  border-radius: 100vh;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#007adf),
-    to(#00ecbc)
-  );
-  background-image: -webkit-linear-gradient(left, #007adf 0%, #00ecbc 100%);
-  background-image: linear-gradient(to right, #007adf 0%, #00ecbc 100%);
-  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-}
-
-a.btn-c:before {
-  font-family: "Font Awesome 5 Free";
-  font-size: 1.6rem;
-  line-height: 1;
-
-  position: absolute;
-  top: calc(50% - 0.8rem);
-  right: 1rem;
-
-  margin: 0;
-  padding: 0;
-
-  content: "\f30b";
-}
-
-a.btn-c:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-
-  color: #fff;
-}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Helvetica Neue",Arial,sans-serif;}
+    body{color:var(--text-dark);line-height:1.6;background:#fff;}
+    header{background:var(--bg-light);padding:60px 20px;text-align:center;}
+    header h1{font-size:2rem;font-weight:700;margin-bottom:20px;}
+    header h2{font-size:1.1rem;margin-bottom:30px;}
+    .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:600;transition:.2s;}
+    .btn:hover{background:var(--primary-dark);}
+    .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:60px 0;}
+    section h3{font-size:1.5rem;font-weight:700;margin-bottom:24px;text-align:center;}
+    section p, li{font-size:1rem;margin-bottom:12px;}
+    ul{list-style:disc inside;margin-left:10px;}
+    .two-col{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;}
+    .card{flex:1 1 300px;background:var(--bg-light);padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+    .speaker img{width:100%;height:auto;border-radius:8px;margin-bottom:12px;}
+    .footer{background:#111;color:#fff;text-align:center;padding:40px 20px;}
+    .sticky-cta{position:fixed;bottom:20px;right:20px;z-index:1000;}
+    @media (min-width:768px){header h1{font-size:2.5rem;}header h2{font-size:1.25rem;}}
   </style>
-  <script>
-    // simple fade-in on scroll
-    document.addEventListener('DOMContentLoaded',()=>{
-      const els=[...document.querySelectorAll('[data-fade]')];
-      const io=new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){e.target.classList.add('show');}
-        });
-      },{threshold:.2});
-      els.forEach(el=>io.observe(el));
-    });
-  </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- ==============================================
-       Sticky Header
-       ============================================== -->
-  <header class="sticky top-0 z-40 sticky-cta bg-white/70 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <h1 class="text-lg md:text-xl font-extrabold text-blue-900">Bay Cosmetics × Zero Gravity</h1>
-      <!-- <a href="#entry-form" class="cta-btn hidden sm:inline-block text-base md:text-lg" style="padding: 10px; color: #fff; border-radius: 10px;">無料で参加する</a> -->
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoShY1lnuPgSRTFekM7rzHkMAZsLYmGfjfb053aVJmaKn3iQ/viewform" class="btn btn-d">お申込みはこちら</a>
-    </div>
+<body>
+  <!-- Hero / ファーストビュー -->
+  <header>
+    <h1>調査データ × 市場トレンドで先読みせよ！<br/>海外の最新成分トレンドも一挙公開</h1>
+    <h2>～最新化粧品トレンドと注目成分 徹底解説セミナー～</h2>
+    <p>開催日：2025年5月21日（水）12:00〜13:00 ｜ 形式：オンライン（Zoom） ｜ 参加費：無料</p>
+    <a class="btn" href="https://forms.gle/3VVdjk7VCqsgEyobA" target="_blank" rel="noopener">今すぐ無料で申し込む</a>
+    <p style="margin-top:16px;font-size:.9rem;">先着100名｜主催：株式会社ベイコスメティックス / 株式会社Zero&nbsp;Gravity</p>
   </header>
 
-  <!-- ==============================================
-       HERO
-       ============================================== -->
-  <section>
-    <img style="width: 100%;" src="https://raw.githubusercontent.com/baycosme/seminar_0521/main/topbanner.png">
-  </section>
-  <section class="py-16 bg-white">
-    <div>      
-      <!-- CTA -->
-      <div class="mb-4">
-        <div style="text-align: center;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoShY1lnuPgSRTFekM7rzHkMAZsLYmGfjfb053aVJmaKn3iQ/viewform" class="btn btn-c">今すぐ申し込む</a>
-        </div>
-      </div>
-    </div>
+  <!-- Why / 概要・課題提示 -->
+  <section class="container">
+    <h3>セミナー概要</h3>
+    <p>本ウェビナーは、国内外の最新データを“現場視点”で読み解き、すぐに企画・処方に活かせるヒントを１時間で凝縮した内容です。</p>
+    <p><strong>第一部：</strong>株式会社ベイコスメティックス代表・加藤聡太が、独自の消費者調査をもとに「今ユーザーが本当に求める成分・効果」を解説。SNSで“バズる”成分と実売データのギャップや、カテゴリ別の最新事例を通して「ヒットする処方・打ち出し方」を具体的に提示します。</p>
+    <p><strong>第二部：</strong>株式会社Zero&nbsp;Gravityの水野夢子が登壇。世界の展示会や原料メーカー最前線で掴んだ開発ホットトピックと上市直後原料のリアルなエビデンスを紹介し、日本市場での活用ポイントまで落とし込みます。</p>
+    <p>トレンドの背景・根拠を“数字”と“ストーリー”で理解し、次期商品の差別化シナリオを描く絶好の機会です。<br><strong>是非ご視聴くださいませ。</strong></p>
   </section>
 
-  <!-- ==============================================
-       Pain Points
-       ============================================== -->
-  <section class="py-16 bg-white" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="section-heading text-2xl md:text-3xl font-extrabold">化粧品市場でブランドが直面する３つの課題</h3>
-      <ul class="space-y-4 mb-8">
-        <li class="flex items-start"><span class="text-blue-600 text-2xl mr-3">✔︎</span><p class="font-semibold">消費者ニーズが多様化し、訴求ポイントの選定が難しい</p></li>
-        <li class="flex items-start"><span class="text-blue-600 text-2xl mr-3">✔︎</span><p class="font-semibold">競合との差別化ポイントが見つけにくい</p></li>
-        <li class="flex items-start"><span class="text-blue-600 text-2xl mr-3">✔︎</span><p class="font-semibold">「売れる成分」と「効果的な訴求」の見極めが急務</p></li>
-      </ul>
-
-      <p class="text-xl font-bold text-blue-700 mb-4">市場は⽇々変化しています。</p>
-      <p class="mb-4 leading-relaxed">
-        SNSで話題の成分、サステナビリティ、ナチュラル志向…<br>
-        消費者がどんな価値に惹かれ、どんな成分に注目しているのか？<br>
-        最新トレンドを<strong>データ</strong>と<strong>専門知識</strong>で徹底解説します。
-      </p>
-
-      <p class="font-semibold">単なる噂や感覚に頼らない、<span class="text-blue-700">客観的データ×専門知見</span>で戦略をアップデートしましょう。</p>
-    </div>
+  <!-- Benefit -->
+  <section class="container" style="background:var(--bg-light);">
+    <h3>このセミナーで学べること</h3>
+    <ul>
+      <li><strong>“話題”と“売上”をつなぐトレンド分析手法</strong>：データから「本当に売れる成分／訴求」を見極める指標を習得。</li>
+      <li><strong>グローバル原料の見極め方と日本市場への転用ノウハウ</strong>：海外展示会で注目される最新有効成分のエビデンスと活用ポイントを理解。</li>
+      <li><strong>カテゴリー別ヒットパターンの構造理解</strong>：主要カテゴリーごとの伸長・停滞領域を把握し、差別化ポイントを抽出。</li>
+      <li><strong>即提案できる資料テンプレート</strong>：トレンドチャートや原料比較表など、実務で使えるツールを提供。</li>
+    </ul>
   </section>
 
-  <!-- ==============================================
-       Gain
-       ============================================== -->
-  <section class="py-16 bg-gray-50" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="section-heading text-2xl md:text-3xl font-extrabold">このセミナーで得られる３つの価値</h3>
-      <div class="grid md:grid-cols-3 gap-6 mb-10">
-        <div class="bg-white p-6 rounded-xl card-hover">
-          <p class="text-blue-600 font-extrabold text-3xl mb-3">01</p>
-          <p class="font-bold">最新消費者データに基づく生のユーザーニーズ</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl card-hover">
-          <p class="text-blue-600 font-extrabold text-3xl mb-3">02</p>
-          <p class="font-bold">世界市場で注目される成分トレンド事例</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl card-hover">
-          <p class="text-blue-600 font-extrabold text-3xl mb-3">03</p>
-          <p class="font-bold">すぐ活かせる開発・マーケのアクションプラン</p>
-        </div>
-      </div>
-    </div>
+  <!-- Recommended -->
+  <section class="container">
+    <h3>こんな人におすすめ</h3>
+    <ul>
+      <li>化粧品ブランドの企画・マーケ担当者で「次のヒット成分」を探している方</li>
+      <li>研究・処方開発担当でグローバル発の新規原料やエビデンスをまとめて把握したい方</li>
+      <li>新カテゴリーや海外原料を取り入れた商品リニューアルを検討中のプロダクトマネージャー・事業責任者</li>
+    </ul>
   </section>
 
-  <!-- ==============================================
-       Program
-       ============================================== -->
-  <section class="py-16 bg-white" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="section-heading text-2xl md:text-3xl font-extrabold mb-6">プログラム</h3>
-
-      <article class="border-l-4 border-blue-600 pl-6 mb-10">
-        <h4 class="text-xl md:text-2xl font-bold mb-1">第一部：消費者調査から見る化粧品・成分トレンド</h4>
-        <p class="text-gray-600 italic mb-3">株式会社ベイコスメティックス 代表取締役社長 加藤聡太</p>
-        <ul class="list-disc list-inside space-y-1">
+  <!-- Program -->
+  <section class="container" style="background:var(--bg-light);">
+    <h3>セミナープログラム</h3>
+    <div class="two-col">
+      <div class="card">
+        <h4>第一部：消費者調査から見る化粧品・成分トレンド</h4>
+        <p>講師：ベイコスメティックス 代表取締役 <strong>加藤聡太</strong></p>
+        <ul>
           <li>今ユーザーが求めている成分と効果</li>
           <li>SNSでバズる成分と実売のギャップ</li>
           <li>カテゴリ別トレンド・最新事例</li>
         </ul>
-      </article>
-
-      <article class="border-l-4 border-blue-600 pl-6">
-        <h4 class="text-xl md:text-2xl font-bold mb-1">第二部：世界市場で注目される最新原料</h4>
-        <p class="text-gray-600 italic mb-3">株式会社Zero Gravity 水野夢子</p>
-        <ul class="list-disc list-inside space-y-1">
+      </div>
+      <div class="card">
+        <h4>第二部：世界市場で注目される最新原料</h4>
+        <p>講師：Zero&nbsp;Gravity <strong>水野夢子</strong></p>
+        <ul>
           <li>グローバルでの有効成分の開発トレンド</li>
           <li>上市したて原料のエビデンス</li>
-          <li>独特な海外原料をに日本市場で使いこなすヒント</li>
+          <li>独特な海外原料を日本市場で使いこなすヒント</li>
         </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- ==============================================
-       Speakers
-       ============================================== -->
-  <section class="py-16 bg-gray-50" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="section-heading text-2xl md:text-3xl font-extrabold">講師プロフィール</h3>
-
-      <div class="space-y-10">
-        <!-- ====== Speaker 1 ====== -->
-        <div class="md:flex md:space-x-6">
-          <div class="md:w-1/3 w-full mb-4 md:mb-0">
-            <!-- ▼▼▼ ここに講師1の写真を挿入してください（幅100%推奨 / 例: <img src="speaker1.jpg" alt="講師1" class="rounded-lg">） ▼▼▼ -->
-            <img style="width: 100%;" src="https://raw.githubusercontent.com/baycosme/seminar_0521/main/kato.png">
-          </div>
-          <div class="md:w-2/3">
-            <h4 class="text-xl md:text-2xl font-bold">加藤聡太</h4>
-            <p class="font-semibold text-blue-700 mb-4">株式会社ベイコスメティックス 代表取締役社長</p>
-            <p class="text-sm md:text-base">
-              1991年生まれ。東京大学経済学部卒業。<br>
-              電通でストラテジックプランナーとして花王やトヨタを担当後、化粧品開発・マーケティング支援で実績多数。
-            </p>
-          </div>
-        </div>
-
-        <!-- ====== Speaker 2 ====== -->
-        <div class="md:flex md:space-x-6">
-          <div class="md:w-1/3 w-full mb-4 md:mb-0">
-            <!-- ▼▼▼ ここに講師2の写真を挿入してください ▼▼▼ -->
-            <img style="width: 100%;" src="https://raw.githubusercontent.com/baycosme/seminar_0521/main/mizuno.png">
-          </div>
-          <div class="md:w-2/3">
-            <h4 class="text-xl md:text-2xl font-bold">水野夢子</h4>
-            <p class="font-semibold text-blue-700 mb-4">株式会社Zero Gravity</p>
-            <p class="text-sm md:text-base">
-              新卒で機能性油剤や粉体などの化粧品原料の輸出貿易を担当したのち、ZeroGravity株式会社に入社。化粧品の有効成分を軸とした化粧品会社のブランディングづくりをサポートする傍らで、有効成分の営業代行も行い、顧客の求めるストーリーや作用機序に合わせた提案を行う。
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ==============================================
-       Who Should Attend
-       ============================================== -->
-  <section class="py-16 bg-white" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="section-heading text-2xl md:text-3xl font-extrabold">こんな方にオススメ</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <p class="font-bold mb-2">✔︎ 新商品開発・MD担当者</p>
-          <ul class="list-disc list-inside text-sm space-y-1">
-            <li>トレンドを捉えた商品企画がしたい</li>
-            <li>消費者ニーズを具体的に把握したい</li>
-          </ul>
-        </div>
-        <div>
-          <p class="font-bold mb-2">✔︎ マーケター</p>
-          <ul class="list-disc list-inside text-sm space-y-1">
-            <li>データドリブンで戦略を立てたい</li>
-            <li>差別化のヒントを探したい</li>
-          </ul>
-        </div>
-        <div>
-          <p class="font-bold mb-2">✔︎ 新規ブランド立ち上げ担当</p>
-          <ul class="list-disc list-inside text-sm space-y-1">
-            <li>成功要因を体系的に学びたい</li>
-            <li>ターゲット設定の精度を上げたい</li>
-          </ul>
-        </div>
-        <div>
-          <p class="font-bold mb-2">✔︎ プロモーション・商品企画に興味のある方</p>
-          <ul class="list-disc list-inside text-sm space-y-1">
-            <li>効果的な訴求ポイントを発掘したい</li>
-            <li>成分知識を深めたい</li>
-          </ul>
-        </div>
+  <!-- Speakers -->
+  <section class="container">
+    <h3>講師紹介</h3>
+    <div class="two-col">
+      <div class="card speaker">
+        <img src="images/kato.jpg" alt="株式会社ベイコスメティックス 代表取締役社長 加藤聡太" />
+        <h4>加藤聡太</h4>
+        <p>株式会社ベイコスメティックス 代表取締役社長</p>
+        <p>1991年生まれ。東京大学経済学部卒業。電通でストラテジックプランナーとして花王やトヨタを担当後、化粧品開発・マーケティング支援で実績多数。</p>
       </div>
-
-      <p class="text-center font-semibold mt-10">「なぜ売れるのか」を理解し、説得力ある企画を創りましょう。</p>
-    </div>
-  </section>
-
-  <!-- ==============================================
-       Event Overview
-       ============================================== -->
-  <section class="py-16 bg-gray-50" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="section-heading text-2xl md:text-3xl font-extrabold">開催概要</h3>
-      <div class="bg-white p-8 rounded-xl shadow-md mb-10">
-        <dl class="grid md:grid-cols-3 gap-6 text-sm md:text-base">
-          <div>
-            <dt class="font-bold mb-1">開催日時</dt>
-            <dd>2025年5月21日（水）12:00〜13:00</dd>
-          </div>
-          <div>
-            <dt class="font-bold mb-1">参加費</dt>
-            <dd>無料</dd>
-          </div>
-          <div>
-            <dt class="font-bold mb-1">開催方法</dt>
-            <dd>Zoom（URLは後日送付）</dd>
-          </div>
-          <div>
-            <dt class="font-bold mb-1">定員</dt>
-            <dd>100名（先着順）</dd>
-          </div>
-          <div>
-            <dt class="font-bold mb-1">主催</dt>
-            <dd>株式会社ベイコスメティックス / 株式会社Zero Gravity</dd>
-          </div>
-        </dl>
-      </div>
-
-      <h4 class="text-xl font-bold mb-3">注意事項</h4>
-      <ul class="list-disc list-inside text-sm space-y-1">
-        <li>通信環境の良い場所からご参加ください</li>
-        <li>プログラムは変更の可能性があります</li>
-        <li>競合企業様は参加をお断りする場合があります</li>
-        <li>URLは申込者本人のみ利用可（複数名参加時は個別でお申し込みください）</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ==============================================
-       Registration Form
-       ============================================== -->
-  <section id="entry-form" class="py-20 lead-gradient text-white" data-fade>
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <h3 class="text-2xl md:text-3xl font-extrabold mb-2">\ 残り席わずか！今すぐ無料申し込み //</h3>
-        <p class="text-lg font-bold">調査データ×市場トレンドから読み解く、最新化粧品トレンドと注目成分</p>
-      </div>
-      <div style="text-align: center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoShY1lnuPgSRTFekM7rzHkMAZsLYmGfjfb053aVJmaKn3iQ/viewform" class="btn btn-c">お申込みはこちら</a>
+      <div class="card speaker">
+        <img src="images/mizuno.jpg" alt="株式会社Zero Gravity 水野夢子" />
+        <h4>水野夢子</h4>
+        <p>株式会社Zero&nbsp;Gravity</p>
+        <p>機能性油剤や粉体の輸出貿易を担当後、Zero&nbsp;Gravityに入社。化粧品の有効成分を軸としたブランドづくりをサポートし、海外原料の営業代行やストーリー提案を行う。</p>
       </div>
     </div>
   </section>
 
-  <!-- ==============================================
-       Footer
-       ============================================== -->
-  <footer class="bg-gray-800 text-gray-200 py-8 text-center">
-    <p class="text-sm">&copy; 2025 株式会社ベイコスメティックス × 株式会社Zero Gravity</p>
+  <!-- Details -->
+  <section class="container" style="background:var(--bg-light);">
+    <h3>開催概要</h3>
+    <ul>
+      <li><strong>開催日時：</strong>2025年5月21日（水）12:00〜13:00</li>
+      <li><strong>開催方法：</strong>Zoom（URLは後日送付）</li>
+      <li><strong>参加費：</strong>無料</li>
+      <li><strong>定員：</strong>100名（先着順）</li>
+      <li><strong>主催：</strong>株式会社ベイコスメティックス / 株式会社Zero&nbsp;Gravity</li>
+    </ul>
+    <div style="text-align:center;margin-top:24px;">
+      <a class="btn" href="https://forms.gle/3VVdjk7VCqsgEyobA" target="_blank" rel="noopener">席数限定：今すぐ無料登録</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Bay Cosmetics &amp; Zero Gravity. All rights reserved.</p>
+    <p>お問い合わせ: info@bay-cosmetics.co.jp / info@zerogravity.co.jp</p>
   </footer>
+
+  <!-- Floating CTA -->
+  <a class="btn sticky-cta" href="https://forms.gle/3VVdjk7VCqsgEyobA" target="_blank" rel="noopener">申し込む</a>
 </body>
 </html>
