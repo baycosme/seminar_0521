@@ -1,136 +1,244 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang=“ja”>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>調査データ × 市場トレンドで先読みせよ！ | 最新化粧品トレンドと注目成分 徹底解説セミナー</title>
+  <meta charset=“UTF-8">
+  <meta name=“viewport” content=“width=device-width,initial-scale=1.0">
+  <title>mederi × ecforce セミナー</title>
+  <!--  Google Fonts & Font-Awesome (free CDN)  -->
+  <link href=“https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap” rel=“stylesheet”>
+  <link href=“https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css” rel=“stylesheet”>
   <style>
-    :root {
-      --primary:#0070f3;
-      --primary-dark:#0059c1;
-      --bg-light:#f5f7fa;
-      --text-dark:#222;
-      --max-width:1080px;
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:“Noto Sans JP”,“Helvetica Neue”,Arial,sans-serif;
+      background:#fff;
+      color:#333;
+      line-height:1.7;
     }
-    *{box-sizing:border-box;margin:0;padding:0;font-family:"Helvetica Neue",Arial,sans-serif;}
-    body{color:var(--text-dark);line-height:1.6;background:#fff;}
-
-    /* === Hero Banner === */
-    .hero-banner{width:100%;}
-    .hero-banner img.hero-img{width:100%;height:auto;display:block;}
-
-    /* Buttons */
-    .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 32px;border-radius:9999px;text-decoration:none;font-weight:600;transition:.2s;}
-    .btn:hover{background:var(--primary-dark);}  
-
-    /* Layout Helpers */
-    .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:60px 0;}
-    section h3{font-size:1.5rem;font-weight:700;margin-bottom:24px;text-align:center;}
-    section p, li{font-size:1rem;margin-bottom:12px;}
-    ul{list-style:disc inside;margin-left:10px;}
-    .two-col{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;}
-    .card{flex:1 1 300px;background:var(--bg-light);padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}   
-    .speaker img{width:100%;height:auto;border-radius:8px;margin-bottom:12px;}
-    .footer{background:#111;color:#fff;text-align:center;padding:40px 20px;}
-    .sticky-cta{position:fixed;bottom:16px;right:16px;z-index:1000;}
-    .sticky-cta.btn{padding:12px 24px;font-size:.9rem;}
-
-    @media (min-width:768px){
-      section h3{font-size:1.75rem;}
+    a{color:#0075c1;text-decoration:none;}
+    /* ---------- LAYOUT ---------- */
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:0 1rem 4rem;
+    }
+    h1,h2,h3,h4{font-weight:700;line-height:1.4;}
+    h1{font-size:1.35rem;margin-bottom:1rem;}
+    h2{font-size:1.15rem;margin:2.5rem 0 1rem;}
+    h3{font-size:1rem;margin:.5rem 0;}
+    p{margin:.6rem 0;}
+    ul{list-style:none;margin:.8rem 0 1.2rem;padding-left:0;}
+    /* ---------- HERO ---------- */
+    .hero{
+      background:#043d8c url(‘https://raw.githubusercontent.com/eggplantanon/assets/main/abstract-leaves.svg’) center/cover no-repeat;
+      padding:2.5rem 1rem 3rem;
+      text-align:center;
+    }
+    .hero img{width:100%;max-width:720px;border-radius:.25rem;box-shadow:0 6px 20px rgba(0,0,0,.25);}
+    /* ---------- BADGE ---------- */
+    .badge{
+      display:inline-block;
+      background:#d90000;
+      color:#fff;
+      font-size:.75rem;
+      padding:.25rem .55rem;
+      border-radius:2px;
+      margin:.75rem 0;
+    }
+    /* ---------- DETAILS ---------- */
+    .details-table{
+      width:100%;
+      border-collapse:collapse;
+      margin:1rem 0 2rem;
+      font-size:.9rem;
+    }
+    .details-table th,
+    .details-table td{
+      padding:.65rem .8rem;
+      border:1px solid #E4E8EF;
+      vertical-align:top;
+    }
+    .details-table th{
+      width:140px;
+      background:#f5f8fb;
+      font-weight:500;
+      text-align:left;
+    }
+    /* ---------- CHECK LIST ---------- */
+    .checklist li{
+      position:relative;
+      padding-left:1.6rem;
+      margin:.45rem 0;
+    }
+    .checklist li i{
+      color:#00a170;
+      position:absolute;
+      left:0;top:.15rem;
+    }
+    /* ---------- PROGRAM BOXES ---------- */
+    .program-card{
+      border:1px solid #E4E8EF;
+      border-left:4px solid #00A170;
+      background:#fcfdfd;
+      padding:1rem 1.25rem;
+      margin:1.2rem 0;
+    }
+    .program-card .label{
+      display:inline-block;
+      font-size:.75rem;
+      font-weight:700;
+      color:#0075c1;
+      border:1px solid #0075C1;
+      border-radius:2px;
+      padding:.05rem .4rem;
+      margin-bottom:.5rem;
+    }
+    /* ---------- SPEAKER ---------- */
+    .speaker-box{
+      display:flex;
+      gap:1.25rem;
+      padding:1.5rem 0;
+      border-bottom:1px solid #EEF1F5;
+    }
+    .speaker-box:last-of-type{border-bottom:none;}
+    .speaker-img{
+      flex:0 0 110px;
+      height:110px;
+      object-fit:cover;
+      border-radius:4px;
+    }
+    .speaker-info h4{font-size:.95rem;margin-bottom:.2rem;}
+    .speaker-role{font-size:.8rem;color:#666;margin-bottom:.4rem;}
+    /* ---------- FOOTNOTE ---------- */
+    .footnote{
+      font-size:.65rem;
+      color:#777;
+      margin-top:2rem;
+      line-height:1.5;
+    }
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:640px){
+      h1{font-size:1.15rem;}
+      h2{font-size:1rem;}
+      .details-table th{width:100px;}
+      .speaker-box{flex-direction:column;align-items:center;text-align:center;}
+      .speaker-img{width:120px;height:120px;}
+      .speaker-info{text-align:left;}
     }
   </style>
 </head>
 <body>
-  <!-- Hero Banner -->
-  <header class="hero-banner">
-    <img src="https://github.com/baycosme/seminar_0521/raw/main/topbanner01.png" alt="調査データ×市場トレンドで先読みせよ！ 海外の最新成分トレンドも一挙公開セミナー バナー" class="hero-img" />
-  </header>
-
-  <!-- Benefit -->
-  <section class="container" style="background:var(--bg-light);">
-    <h3>このセミナーで学べること</h3>
-    <ul>
-      <li>“話題”と“売上”をつなぐトレンド分析手法</li>
-      <li>グローバル原料の見極め方と日本市場への転用ノウハウ</li>
-      <li>カテゴリー別ヒットパターンの構造理解</li>
-    </ul>
+  <!-- HERO -->
+  <section class=“hero”>
+    <!-- バナー画像は自由に差し替えてください -->
+    <img src=“https://raw.githubusercontent.com/eggplantanon/assets/main/mederi-ecforce-banner.jpg” alt=“EC×フェムテック 成長率No.1企業が伝授“>
   </section>
-
-  <!-- Recommended -->
-  <section class="container">
-    <h3>こんな人におすすめ</h3>
-    <ul>
-      <li>化粧品ブランドの企画・マーケ担当者</li>
-      <li>化粧品研究・処方開発担当者および携わる方</li>
-      <li>化粧品ブランドのプロダクトマネージャー・事業責任者</li>
+  <main class=“container”>
+    <!-- TITLE -->
+    <span class=“badge”>受付中</span>
+    <h1>EC×フェムテック　成長率No.1企業が伝授<br>リピーターが続出する顧客体験の設計の秘訣</h1>
+    <!-- SCHEDULE -->
+    <table class=“details-table”>
+      <tr>
+        <th>【リアルタイム配信】</th>
+        <td>2025年5月20日（火） 14:00–15:00</td>
+      </tr>
+      <tr>
+        <th>【アーカイブ配信】</th>
+        <td>
+          2025年5月22日（木） 14:00–15:00<br>
+          2025年5月30日（金） 14:00–15:00
+        </td>
+      </tr>
+      <tr>
+        <th><i class=“fa-solid fa-location-dot”></i> 開催形式</th>
+        <td>オンライン（Zoom ウェビナー）</td>
+      </tr>
+    </table>
+    <!-- WHAT YOU WILL LEARN -->
+    <h2>セミナーで学べること</h2>
+    <ul class=“checklist”>
+      <li><i class=“fa-solid fa-check-circle”></i> これからブランド売上を上げたいとお考えの方</li>
+      <li><i class=“fa-solid fa-check-circle”></i> 継続につながる体験設計に興味がある方</li>
+      <li><i class=“fa-solid fa-check-circle”></i> リピートにつながる仕掛けを探している方</li>
     </ul>
-  </section>
-
-  <!-- Program -->
-  <section class="container" style="background:var(--bg-light);">
-    <h3>セミナープログラム</h3>
-    <div class="two-col">
-      <div class="card">
-        <h4>第一部：消費者調査から見る化粧品・成分トレンド</h4>
-        <p>講師：株式会社ベイコスメティックス 代表取締役 加藤聡太</p>
-        <ul>
-          <li>今ユーザーが求めている成分と効果</li>
-          <li>SNSでバズる成分と実売のギャップ</li>
-          <li>カテゴリ別トレンド・最新事例</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>第二部：世界市場で注目される最新原料</h4>
-        <p>講師：Zero&nbsp;Gravity株式会社 水野夢子</p>
-        <ul>
-          <li>グローバルでの有効成分の開発トレンド</li>
-          <li>上市したて原料のエビデンス</li>
-          <li>独特な海外原料を日本市場で使いこなすヒント</li>
-        </ul>
+    <!-- DESCRIPTION -->
+    <h2>セミナー内容</h2>
+    <p>本セミナーでは、フェムテック領域におけるオンライン診療用ブランド<strong>「mederi」</strong>を運営する mederi 株式会社より、代表取締役の<strong>坂梨亜里咲</strong>氏をゲストにお迎えし、<strong>成長率 No.1 企業</strong>に向けた <strong>購入〜継続の設計</strong>についてお話いただく、トークセッション形式の 60 分です。</p>
+    <p>立ち上げ期から累計 5 万回以上の購買に至るまでの取り組みを通じて、<strong>D2C ブランド立ち上げ初期に直面しやすい「伸びない」課題</strong>や、運営フェーズでつかむ体験設計・UI/UX 改善のポイントなどを具体的な経験則とともにご紹介いただきます。</p>
+    <p>また、mederi が特に注力する <strong>マイページのカスタマイズ（プラン変更・契約情報改定など）</strong>の支援負担を軽減しつつ、<strong>体験が売上を底上げするための CRM 戦略</strong>をテーマにトークを展開していきます。</p>
+    <p>「なかなか継続してもらえない」「購入後のフォローが仕組み化できていない」「マイページを活かしきれていない」… そんな悩みをお持ちのブランド様には、特におすすめのセミナーです。</p>
+    <!-- PROGRAM -->
+    <h2>セミナープログラム <small style=“font-size:.8rem;color:#666”>(60min)</small></h2>
+    <div class=“program-card”>
+      <span class=“label”>第一部</span>
+      <h3>D2C 立ち上げ期に直面しやすい “課題” とは</h3>
+      <p>ブランド立ち上げ時に起こりやすい “伸び悩む” 壁を生む要因を事例を交えて紐解きます。</p>
+    </div>
+    <div class=“program-card”>
+      <span class=“label”>第二部</span>
+      <h3>購入体験設計と UI/UX 改善による継続率向上の取り組み</h3>
+      <p>複雑化の抑制に向けて、mederi が取り組んできた「購入後の体験改善施策」の裏側を共有。</p>
+    </div>
+    <div class=“program-card”>
+      <span class=“label”>第三部</span>
+      <h3>立ち上げフェーズからできるユーザーの継続を高める TIPS 的ヒント</h3>
+      <p>ブランド立ち上げ初期からでもできる、日次で効く小さな改善施策の数々を紹介します。</p>
+    </div>
+    <div class=“program-card” style=“border-left-color:#999;“>
+      <span class=“label” style=“border-color:#999;color:#999;“>質疑応答</span>
+      <h3>Q&A</h3>
+      <p>残り時間でご質問にお答えします。</p>
+    </div>
+    <!-- OUTLINE -->
+    <h2>セミナー概要</h2>
+    <table class=“details-table”>
+      <tr>
+        <th>主催</th><td>株式会社 SUPER STUDIO</td>
+      </tr>
+      <tr>
+        <th>ゲスト登壇企業</th><td>mederi 株式会社</td>
+      </tr>
+      <tr>
+        <th>視聴方法</th><td>Zoom でのオンラインセミナー</td>
+      </tr>
+      <tr>
+        <th>参加費</th><td>無料</td>
+      </tr>
+      <tr>
+        <th>お問い合わせ先</th>
+        <td>
+          株式会社 SUPER STUDIO セミナー運営事務局<br>
+          Tel：03-5759-5830<br>
+          Email：<a href=“mailto:seminar@super-studio.jp”>seminar@super-studio.jp</a><br>
+          受付：11:00–18:00（土日祝日除く）
+        </td>
+      </tr>
+    </table>
+    <!-- SPEAKERS -->
+    <h2>登壇者紹介</h2>
+    <div class=“speaker-box”>
+      <img class=“speaker-img” src=“https://raw.githubusercontent.com/eggplantanon/assets/main/speaker_arisa.jpg” alt=“坂梨 亜里咲“>
+      <div class=“speaker-info”>
+        <h4>坂梨 亜里咲 氏</h4>
+        <div class=“speaker-role”>mederi 株式会社 代表取締役</div>
+        <p>経済卒業後、大手ファッション通販やメンズ EC コンサルティング会社にてマーケティング業務を担当。その後 D2C×医療領域の課題を解決すべく「mederi」を創業。</p>
       </div>
     </div>
-  </section>
-
-  <!-- Speakers -->
-  <section class="container">
-    <h3>講師紹介</h3>
-    <div class="two-col">
-      <div class="card speaker">
-        <img src="https://github.com/baycosme/seminar_0521/raw/main/kato.png" alt="株式会社ベイコスメティックス 代表取締役社長 加藤聡太" />
-        <h4>加藤聡太</h4>
-        <p>株式会社ベイコスメティックス 代表取締役社長</p>
-        <p>1991年生まれ。東京大学経済学部卒業。電通でストラテジックプランナーとして花王やトヨタを担当後、化粧品開発・マーケティング支援で実績多数。</p>
-      </div>
-      <div class="card speaker">
-        <img src="https://github.com/baycosme/seminar_0521/raw/main/mizuno.png" alt="株式会社Zero Gravity 水野夢子" />
-        <h4>水野夢子</h4>
-        <p>株式会社Zero&nbsp;Gravity</p>
-        <p>機能性油剤や粉体の輸出貿易を担当後、Zero&nbsp;Gravityに入社。化粧品の有効成分を軸としたブランドづくりをサポートし、海外原料の営業代行やストーリー提案を行う。</p>
+    <div class=“speaker-box”>
+      <img class=“speaker-img” src=“https://raw.githubusercontent.com/eggplantanon/assets/main/speaker_mano.jpg” alt=“真野 皓“>
+      <div class=“speaker-info”>
+        <h4>真野 皓</h4>
+        <div class=“speaker-role”>株式会社 SUPER STUDIO　執行役員 CRO</div>
+        <p>大手商社等、複数 IT ベンチャー企業へ参画後、顧客体験向上をミッションに SUPER STUDIO 入社。D2C 事業者への CRM 支援を行う。</p>
       </div>
     </div>
-  </section>
-
-  <!-- Details -->
-  <section class="container" style="background:var(--bg-light);">
-    <h3>開催概要</h3>
-    <ul>
-      <li><strong>開催日時：</strong>2025年5月21日（水）12:00〜13:00</li>
-      <li><strong>開催方法：</strong>Zoom（URLは後日送付）</li>
-      <li><strong>参加費：</strong>無料</li>
-      <li><strong>定員：</strong>100名（先着順）</li>
-      <li><strong>主催：</strong>株式会社Zero&nbsp;Gravity、株式会社ベイコスメティックス</li>
-    </ul>
-    <div style="text-align:center;margin-top:24px;">
-      <a class="btn" href="https://forms.gle/3VVdjk7VCqsgEyobA" target="_blank" rel="noopener">今すぐ申し込み</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>お問い合わせ: contact@baycosme.com</p>
-  </footer>
-
-  <!-- Floating CTA -->
-  <a class="btn sticky-cta" href="https://forms.gle/3VVdjk7VCqsgEyobA" target="_blank" rel="noopener">申し込む</a>
+    <!-- FOOTNOTE -->
+    <p class=“footnote”>
+      ※ 本セミナーは EC 事業に従事する企業様向けです。<br>
+      ※ 同業他社 / フリーランス / 学生のご参加はご遠慮ください。<br>
+      ※ ご入力いただいた個人情報は、各社プライバシーポリシーに基づき適切に取り扱います。
+    </p>
+  </main>
 </body>
 </html>
